@@ -16,7 +16,7 @@ namespace Azure.OpenAI;
 #suppress "@azure-tools/typespec-autorest/union-unsupported" "External API shape is defined in OpenAPI 3.0 as oneOf."
 alias ChatMessageContent = string | ChatMessageContentItem[];
 
-@added(ServiceApiVersions.v2024_02_15_Preview)
+@added(ServiceApiVersions.v2023_05_15)
 @doc("An abstract representation of a structured content item within a chat message.")
 @discriminator("type")
 model ChatMessageContentItem {
@@ -24,7 +24,7 @@ model ChatMessageContentItem {
   type: string;
 }
 
-@added(ServiceApiVersions.v2024_02_15_Preview)
+@added(ServiceApiVersions.v2023_05_15)
 @doc("A structured chat content item containing plain text.")
 model ChatMessageTextContentItem extends ChatMessageContentItem {
   @doc("The discriminated object type: always 'text' for this type.")
@@ -103,18 +103,18 @@ model ChatRequestSystemMessage extends ChatRequestMessage {
   name?: string;
 }
 
-//@added(ServiceApiVersions.v2023_05_15)
-//@doc("A request chat message representing user input to the assistant.")
-//model ChatRequestUserMessage extends ChatRequestMessage {
-//  @doc("The chat role associated with this message, which is always 'user' for user messages.")
-//  role: ChatRole.user;
-//
-//  @doc("The contents of the user message, with available input types varying by selected model.")
-//  content: ChatMessageContent;
-//
-//  @doc("An optional name for the participant.")
-//  name?: string;
-//}
+@added(ServiceApiVersions.v2023_05_15)
+@doc("A request chat message representing user input to the assistant.")
+model ChatRequestUserMessage extends ChatRequestMessage {
+  @doc("The chat role associated with this message, which is always 'user' for user messages.")
+  role: ChatRole.user;
+
+  @doc("The contents of the user message, with available input types varying by selected model.")
+  content: ChatMessageContent;
+
+  @doc("An optional name for the participant.")
+  name?: string;
+}
 
 @added(ServiceApiVersions.v2023_05_15)
 @doc("A request chat message representing response or action from the assistant.")
