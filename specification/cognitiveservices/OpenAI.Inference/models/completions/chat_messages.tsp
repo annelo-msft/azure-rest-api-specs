@@ -103,18 +103,18 @@ model ChatRequestSystemMessage extends ChatRequestMessage {
   name?: string;
 }
 
-@added(ServiceApiVersions.v2023_05_15)
-@doc("A request chat message representing user input to the assistant.")
-model ChatRequestUserMessage extends ChatRequestMessage {
-  @doc("The chat role associated with this message, which is always 'user' for user messages.")
-  role: ChatRole.user;
-
-  @doc("The contents of the user message, with available input types varying by selected model.")
-  content: ChatMessageContent;
-
-  @doc("An optional name for the participant.")
-  name?: string;
-}
+//@added(ServiceApiVersions.v2023_05_15)
+//@doc("A request chat message representing user input to the assistant.")
+//model ChatRequestUserMessage extends ChatRequestMessage {
+//  @doc("The chat role associated with this message, which is always 'user' for user messages.")
+//  role: ChatRole.user;
+//
+//  @doc("The contents of the user message, with available input types varying by selected model.")
+//  content: ChatMessageContent;
+//
+//  @doc("An optional name for the participant.")
+//  name?: string;
+//}
 
 @added(ServiceApiVersions.v2023_05_15)
 @doc("A request chat message representing response or action from the assistant.")
